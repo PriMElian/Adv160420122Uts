@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -42,10 +41,10 @@ class DoctorDetailFragment : Fragment() {
             val imgView = view?.findViewById<ImageView>(R.id.imgViewDoctorDetail)
             val txtJadwal = view?.findViewById<TextView>(R.id.txtJadwal)
 
-            txtName?.text = doctorLD.name
-            txtType?.text = doctorLD.type
-            txtExp?.text = doctorLD.experience.toString() + " tahun"
-            txtLike?.text = doctorLD.like.toString() + " like"
+            txtName?.text = "Name: " + doctorLD.name
+            txtType?.text = "Dokter: " + doctorLD.type
+            txtExp?.text = "Pengalaman: " + doctorLD.experience.toString() + " tahun"
+            txtLike?.text = "Likes: " + doctorLD.like.toString() + " like"
             imgView?.loadImage(doctorLD.photoUrl)
             txtJadwal?.text = doctorLD.jadwal
         })

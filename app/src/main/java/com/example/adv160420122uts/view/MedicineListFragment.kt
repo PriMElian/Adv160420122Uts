@@ -1,7 +1,6 @@
 package com.example.adv160420122uts.view
 
 import android.os.Bundle
-import android.os.RecoverySystem
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.adv160420122uts.R
-import com.example.adv160420122uts.viewmodel.DoctorListViewModel
 import com.example.adv160420122uts.viewmodel.MedicineListViewModel
 
 class MedicineListFragment : Fragment() {

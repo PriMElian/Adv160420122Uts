@@ -23,8 +23,11 @@ class RiwayatTransaksiViewModel(application: Application):
     private var queue: RequestQueue? = null
 
     fun refresh() {
+        loadingLD.value = true
+        riwayatTransaksiLoadErrorLD.value = false
+
         queue = Volley.newRequestQueue(getApplication())
-        val url = "http://10.0.2.2/advnative/riwayatTransaksi.php"
+        val url = "http://10.0.2.2/advnative/riwayatTransaksiMedicine.php"
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {

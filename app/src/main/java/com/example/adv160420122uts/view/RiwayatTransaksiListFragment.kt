@@ -65,7 +65,7 @@ class RiwayatTransaksiListFragment : Fragment() {
         })
 
         riwayatTransaksiViewModel.loadingLD.observe(viewLifecycleOwner, Observer {
-            val progressLoad = view?.findViewById<ProgressBar>(R.id.progressLoadDoctor)
+            val progressLoad = view?.findViewById<ProgressBar>(R.id.progressLoadRiwayat)
             val recView = view?.findViewById<RecyclerView>(R.id.recViewRiwayat)
             if (it == true) {
                 recView?.visibility = View.GONE

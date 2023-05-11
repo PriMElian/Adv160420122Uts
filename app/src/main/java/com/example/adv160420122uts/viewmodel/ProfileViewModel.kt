@@ -15,7 +15,7 @@ import com.google.gson.reflect.TypeToken
 class ProfileViewModel(application: Application):
     AndroidViewModel(application) {
     //Object Observable
-    val profileLD = MutableLiveData<ArrayList<Profile>>()
+    val profileLD = MutableLiveData<Profile>()
 
     val TAG = "volleyTag"
     private var queue: RequestQueue? = null
@@ -26,8 +26,8 @@ class ProfileViewModel(application: Application):
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             {
-                val sType = object : TypeToken<ArrayList<Profile>>() { }.type
-                val result = Gson().fromJson<ArrayList<Profile>>(it, sType)
+                val sType = object : TypeToken<Profile>() { }.type
+                val result = Gson().fromJson<Profile>(it, sType)
                 profileLD.value = result
 
                 Log.d("showVolley", result.toString())

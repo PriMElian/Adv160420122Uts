@@ -61,8 +61,8 @@
     <fragment
         android:id="@+id/riwayatTransaksiFragment"
         android:name="com.example.adv160420122uts.view.RiwayatTransaksiListFragment"
-        android:label="fragment_riwayat_transaksi"
-        tools:layout="@layout/fragment_riwayat_transaksi_list" >
+        android:label="Riwayat Transaksi"
+        tools:layout="@layout/fragment_riwayat_transaksi_list">
         <argument
             android:name="id"
             app:argType="integer" />

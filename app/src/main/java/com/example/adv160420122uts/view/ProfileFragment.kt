@@ -33,16 +33,16 @@ class ProfileFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        profileViewModel.profileLD.observe(viewLifecycleOwner, Observer {
-            val txtname = view?.findViewById<TextView>(R.id.txtNameProfile)
+        profileViewModel.profileLD.observe(viewLifecycleOwner, Observer { profileLD->
+            val txtName = view?.findViewById<TextView>(R.id.txtNameProfile)
             val txtNoTelp = view?.findViewById<TextView>(R.id.txtNoTelp)
             val btnRiwayat = view?.findViewById<Button>(R.id.btnRiwayat)
 
-            //txtname?.text = "Elian"
-            //txtNoTelp?.text = "081345678342"
+            txtName?.text = profileLD.name
+            txtNoTelp?.text = profileLD.noTelp
 
             btnRiwayat?.setOnClickListener {
-                val action = ProfileFragmentDirections.actionRiwayatTransaksi(id = it.id)
+                val action = ProfileFragmentDirections.actionRiwayatTransaksi(id = id)
                 Navigation.findNavController(it).navigate(action)
             }
         })
