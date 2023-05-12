@@ -7,21 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.adv160420122uts.R
+import com.example.adv160420122uts.databinding.FragmentArtikelDetailBinding
+import com.example.adv160420122uts.databinding.FragmentDoctorDetailBinding
 import com.example.adv160420122uts.util.loadImage
 import com.example.adv160420122uts.viewmodel.DoctorDetailViewModel
 
 class DoctorDetailFragment : Fragment() {
     private lateinit var doctorDetailViewModel: DoctorDetailViewModel
+    private lateinit var dataBinding: FragmentDoctorDetailBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doctor_detail, container, false)
+        //return inflater.inflate(R.layout.fragment_doctor_detail, container, false)
+        dataBinding = DataBindingUtil.inflate<FragmentDoctorDetailBinding>(inflater,
+            R.layout.fragment_doctor_detail, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +40,7 @@ class DoctorDetailFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        doctorDetailViewModel.doctorLD.observe(viewLifecycleOwner, Observer { doctorLD->
+        /*doctorDetailViewModel.doctorLD.observe(viewLifecycleOwner, Observer { doctorLD->
             val txtName = view?.findViewById<TextView>(R.id.txtNameDoctorDetail)
             val txtType = view?.findViewById<TextView>(R.id.txtTypeDoctorDetail)
             val txtExp = view?.findViewById<TextView>(R.id.txtExpDoctorDetail)
@@ -47,6 +54,10 @@ class DoctorDetailFragment : Fragment() {
             txtLike?.text = "Likes: " + doctorLD.like.toString() + " like"
             imgView?.loadImage(doctorLD.photoUrl)
             txtJadwal?.text = doctorLD.jadwal
+        })*/
+
+        doctorDetailViewModel.doctorLD.observe(viewLifecycleOwner, Observer {
+            dataBinding.doctor = it
         })
     }
 }

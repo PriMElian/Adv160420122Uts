@@ -9,7 +9,11 @@
         android:id="@+id/itemHome"
         android:name="com.example.adv160420122uts.view.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actionArtikelDetail"
+            app:destination="@id/artikelDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemProfile"
         android:name="com.example.adv160420122uts.view.ProfileFragment"
@@ -18,6 +22,9 @@
         <action
             android:id="@+id/actionRiwayatTransaksi"
             app:destination="@id/riwayatTransaksiFragment" />
+        <action
+            android:id="@+id/actionSignIn"
+            app:destination="@id/signInFragment" />
     </fragment>
     <fragment
         android:id="@+id/itemSchedule"
@@ -66,5 +73,32 @@
         <argument
             android:name="id"
             app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/artikelDetailFragment"
+        android:name="com.example.adv160420122uts.view.ArtikelDetailFragment"
+        android:label="ArtikelDetailFragment" >
+        <argument
+            android:name="arikelId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.adv160420122uts.view.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/actionSignUp"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/actionHome"
+            app:destination="@id/itemHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.adv160420122uts.view.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/actionSignInBack"
+            app:destination="@id/signInFragment" />
     </fragment>
 </navigation>

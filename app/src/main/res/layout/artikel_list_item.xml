@@ -2,13 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
-            name="doctor"
-            type="com.example.adv160420122uts.model.Doctor" />
+            name="artikel"
+            type="com.example.adv160420122uts.model.Artikel" />
         <variable
             name="listener"
-            type="com.example.adv160420122uts.view.ButtonDoctorDetailClickListener" />
+            type="com.example.adv160420122uts.view.ButtonArtikelDetailClickListener" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,8 +18,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            app:cardElevation="15dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="15px"
+            app:cardElevation="15px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,53 +32,35 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imgViewDoctor"
+                    android:id="@+id/imageView"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
                     android:scaleType="centerCrop"
-                    android:imageUrl="@{doctor.photoUrl}"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <TextView
-                    android:id="@+id/txtNameDoctor"
+                    android:id="@+id/txtJudul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:text="@{doctor.name}"
-                    android:textColor="@color/black"
+                    android:text="@{artikel.judul}"
                     android:textSize="16sp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toEndOf="@+id/imgViewDoctor"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/txtTypeDoctor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="@{doctor.type}"
-                    app:layout_constraintStart_toEndOf="@+id/imgViewDoctor"
-                    app:layout_constraintTop_toBottomOf="@+id/txtNameDoctor" />
-
                 <Button
-                    android:id="@+id/btnPilihDoctor"
+                    android:id="@+id/btnDetailArtikel"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="Pilih"
-                    android:tag="@{doctor.id}"
-                    android:onClick="@{listener::onButtonDoctorDetailClick}"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:text="DETAIL"
+                    android:tag="@{artikel.id}"
+                    android:onClick="@{listener::onButtonArtikelDetailClick}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 

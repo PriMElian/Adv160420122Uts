@@ -37,6 +37,7 @@ class ProfileFragment : Fragment() {
             val txtName = view?.findViewById<TextView>(R.id.txtNameProfile)
             val txtNoTelp = view?.findViewById<TextView>(R.id.txtNoTelp)
             val btnRiwayat = view?.findViewById<Button>(R.id.btnRiwayat)
+            val btnEdit = view?.findViewById<Button>(R.id.btnEdit)
 
             txtName?.text = profileLD.name
             txtNoTelp?.text = profileLD.noTelp
@@ -44,6 +45,10 @@ class ProfileFragment : Fragment() {
             btnRiwayat?.setOnClickListener {
                 val action = ProfileFragmentDirections.actionRiwayatTransaksi(id = id)
                 Navigation.findNavController(it).navigate(action)
+            }
+
+            btnEdit?.setOnClickListener {
+
             }
         })
     }
